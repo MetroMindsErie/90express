@@ -1,0 +1,10 @@
+sku,name,category,pack_description,cases_per_pallet,case_weight_lb,list_price,temp_class,discontinued,tier_1_min,tier_1_price,tier_2_min,tier_2_price,tier_3_min,tier_3_price,tier_4_min,tier_4_price
+CUP-16,16 oz Cold Cups,disposables,20/50 ct,36,22,$52.90,dry,,40,$49.90,200,$46.50,500,$44.80,800,$43.50
+LID-16,16 oz Cup Lids,disposables,20/50 ct,40,14,$29.00,dry,,40,$27.50,200,$25.50,800,$24.00,,
+CTN-9,"9"" Hinged Clamshell",disposables,200 ct,32,18,$46.00,dry,Y,30,$43.50,150,$40.50,600,$38.00,,
+CTN-9B,"9"" Hinged Clamshell, Bagasse",disposables,200 ct,32,19.5,$51.40,dry,,30,$48.60,150,$45.20,600,$42.40,,
+BAG-TO,"To-Go Bags, Kraft",disposables,500 ct,44,24,$33.00,dry,,40,$31.20,200,$29.00,800,$27.20,,
+NAP-DIN,Dinner Napkins,paper,6/1000 ct,42,26,$38.50,dry,,40,$36.50,200,$34.00,800,$32.00,,
+TWL-ROLL,Roll Towels,paper,12/700 ft,36,31,$42.00,dry,,40,$39.80,200,$37.00,800,$34.80,,
+GLV-NIT,"Nitrile Gloves, Powder-Free",sanitation,10/100 ct,48,12,$78.50,dry,,25,$75.20,120,$69.80,500,$65.40,,
+SAN-QT,Quat Sanitizer Concentrate,sanitation,4/1 gal,60,34,$49.00,dry,,25,$47.00,120,$44.00,500,$41.50,,

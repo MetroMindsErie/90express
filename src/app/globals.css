@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
+/*
+  90 Express — operations console.
+
+  Visual language borrowed from interstate signage and dispatch boards: a cool
+  dark slate ground, reflective-green for value delivered, signal amber for
+  things that need a decision, and a tabular monospace for every figure so
+  columns of money line up and can be scanned down.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink-950: #080b11;
+  --ink-900: #0c1017;
+  --ink-850: #11161f;
+  --ink-800: #161d28;
+  --ink-700: #1f2836;
+  --ink-600: #2b3647;
+  --ink-500: #3d4a5e;
+
+  --text-hi: #e8edf5;
+  --text-mid: #9aa7bd;
+  --text-low: #64748b;
+
+  --signal: #f0a830;
+  --signal-dim: #4a3617;
+  --guide: #2f9e68;
+  --guide-dim: #16351f;
+  --alert: #e2564d;
+  --alert-dim: #3d1a1a;
+  --route: #4a90d9;
+  --route-dim: #16293f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-850: var(--ink-850);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-ink-500: var(--ink-500);
+
+  --color-hi: var(--text-hi);
+  --color-mid: var(--text-mid);
+  --color-low: var(--text-low);
+
+  --color-signal: var(--signal);
+  --color-signal-dim: var(--signal-dim);
+  --color-guide: var(--guide);
+  --color-guide-dim: var(--guide-dim);
+  --color-alert: var(--alert);
+  --color-alert-dim: var(--alert-dim);
+  --color-route: var(--route);
+  --color-route-dim: var(--route-dim);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink-950);
+  color: var(--text-hi);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Every money and quantity figure is tabular so columns align down the page. */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Small uppercase label used for column heads and section eyebrows. */
+.eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-low);
+  font-weight: 600;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink-950);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Thin scrollbars so dense tables do not get a chunky gutter. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-600) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--ink-600);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
 }

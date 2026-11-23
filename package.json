@@ -3,25 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NEXT_DIST_DIR=.next-dev next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --import tsx --test \"src/lib/**/*.test.ts\"",
+    "seed": "node --import tsx db/seed.ts && node --import tsx db/seed-integrations.ts && node --import tsx db/seed-accounts.ts",
+    "db:migrate": "psql -d ${PGDATABASE:-ninety_express} -v ON_ERROR_STOP=1 -f db/migrations/0001_init.sql -f db/migrations/0002_fee_models.sql -f db/migrations/0003_integrations.sql -f db/migrations/0004_onboarding_auth.sql",
+    "mock-partners": "node --import tsx tools/mock-partners/server.ts",
+    "seed:integrations": "node --import tsx db/seed-integrations.ts",
+    "integrations:run": "node --import tsx tools/run-integrations.ts",
+    "seed:accounts": "node --import tsx db/seed-accounts.ts"
   },
   "dependencies": {
+    "next": "^15.5.29",
+    "postgres": "^3.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "dotenv": "^16.4.7",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
   }
 }
